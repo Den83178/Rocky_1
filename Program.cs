@@ -14,6 +14,8 @@ namespace Rocky_1
             options.UseSqlServer(
                 builder.Configuration.GetConnectionString("DefaultConnection_1")));
 
+            builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
+
             builder.Services.AddControllersWithViews();
 
             var app = builder.Build();
@@ -39,6 +41,7 @@ namespace Rocky_1
                 pattern: "{controller=Home}/{action=Index}/{id?}");
 
             app.Run();
+
         }
     }
 }
