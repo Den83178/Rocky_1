@@ -15,7 +15,7 @@ namespace Rocky_1.Controllers
 
         public IActionResult Index()
         {
-            IEnumerable<Category_1 > objList = _db1.Category_1;
+            IEnumerable<Category_1> objList = _db1.Category_1;
             return View(objList);
         }
 
@@ -24,6 +24,17 @@ namespace Rocky_1.Controllers
         {
             return View();
         }
+
+        //POST - CREATE
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Create(Category_1 obj)
+        {
+            _db1.Category_1.Add(obj);
+            _db1.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
 
     }
 }
