@@ -14,7 +14,7 @@ namespace Rocky_1
             options.UseSqlServer(
                 builder.Configuration.GetConnectionString("DefaultConnection_1")));
 
-            //builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
+            builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
 
             builder.Services.AddControllersWithViews();
 
@@ -44,4 +44,4 @@ namespace Rocky_1
 
         }
     }
-}
+}                      // Lesson 34
