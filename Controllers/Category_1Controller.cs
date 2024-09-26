@@ -30,9 +30,13 @@ namespace Rocky_1.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Create(Category_1 obj)
         {
-            _db1.Category_1.Add(obj);
-            _db1.SaveChanges();
-            return RedirectToAction("Index");
+            if (ModelState.IsValid)
+            {
+                _db1.Category_1.Add(obj);
+                _db1.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(obj);
         }
 
 
