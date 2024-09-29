@@ -39,6 +39,69 @@ namespace Rocky_1.Controllers
             return View(obj);
         }
 
+        //GET - EDIT
+        public IActionResult Edit(int? id)
+        {
+            if (id == 0 || id == null)
+            {
+                return NotFound();
+            }
+            var obj = _db1.Category_1.Find(id);
+            if(obj==null)
+            {
+                return NotFound();
+            }
+            return View(obj);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Edit(Category_1 ob)
+        {
+            if(ModelState.IsValid)
+            {
+                _db1.Category_1.Update(ob);
+                _db1.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View();
+        }
+
+        //GET - DELETE
+        public ActionResult Delete(int? id)
+        {
+            if (id==0 || id==null)
+            {  
+                return NotFound(); 
+            }
+            var obj = _db1.Category_1.Find(id);
+            if(obj==null)
+            {
+                return NotFound();
+            }
+            return View(obj);
+        }
+
+        //POST - DELETE
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult DeletePost(int id)
+        {
+            var obj = _db1.Category_1.Find(id);
+            if(obj==null)
+            {
+                return NotFound();
+            }
+           
+                _db1.Category_1.Remove(obj);
+                _db1.SaveChanges();
+                return RedirectToAction("Index");
+           
+            
+        }
+
+
 
     }
 }

@@ -1,5 +1,14 @@
 ﻿@model IEnumerable<Rocky_1.Models.Category_1>
 
+<style>
+
+    div button{
+        margin-left: 3px;
+        margin-right: 3px;
+       
+    }
+</style>
+
 <div class="container p-3">
     <div class="row pt-4">
         <div class="col-6">
@@ -7,7 +16,7 @@
         </div>
         <div class="col-6 text-end">
             <a asp-controller="Category_1" asp-action="Create" class="btn btn-primary">
-                Create New Category
+                <i class="fa-solid fa-plus"></i> &nbsp; Create New Category
             </a>
         </div>
     </div>
@@ -35,7 +44,12 @@
                     <tr>
                         <td width="50%">@obj.Name</td>
                         <td width="30%">@obj.DisplayOrder</td>
-                        <td></td>
+                        <td class="text-center">
+                            <div class="btn-group w50" role="group">
+                                <a asp-controller="Category_1" asp-route-id="@obj.Id" asp-action="Edit" type="submit" class="btn btn-info mx-1"> <i class="fa-regular fa-pen-to-square"></i> &nbsp; Edit</a>
+                                <a asp-controller="Category_1" asp-route-id="@obj.Id" asp-action="Delete" type="submit" class="btn btn-danger mx-1 ">&nbsp; Delete <i class="fas fa-trash-alt"></i></a>
+                            </div>
+                        </td>
                     </tr>
                 }
             </tbody>

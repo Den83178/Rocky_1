@@ -1,0 +1,61 @@
+﻿@model Rocky_1.Models.Category_1
+
+<form method="post" asp-action="DeletePost">
+    <input asp-for="Id" hidden />
+    <div class="border p-3">
+
+        <div class="form-group row">
+            <h1 class="text-info px-3">Delete Category_1</h1>
+        </div>
+
+
+        <div class="row">
+            <div class="col-8">
+                <div class="mb-2 row">
+                    <div class="col-4">
+                        <label asp-for="Name"></label>
+
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="Name" disabled class="form-control" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="mb-2 row">
+                    <div class="col-4">
+                        <label asp-for="DisplayOrder"></label>
+
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="DisplayOrder" type="text" disabled class="form-control" />
+                        <span asp-validation-for="DisplayOrder" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="col-8 offset-4 row">
+                    <div class="col">
+                        <input type="submit" class="btn btn-danger w-100" value="Delete" />
+                    </div>
+                    <div class="col">
+                        <a asp-action="Index" class="btn btn-info w-100">Back &nbsp;<i class="fa-solid fa-right-from-bracket"></i></a>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="col-4">
+                @* Keep this empty *@
+            </div>
+
+        </div>
+
+    </div>
+</form>
+
+@section Scripts
+{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}
