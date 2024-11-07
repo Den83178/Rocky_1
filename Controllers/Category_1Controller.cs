@@ -54,6 +54,7 @@ namespace Rocky_1.Controllers
             return View(obj);
         }
 
+        //POST - Edit
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Edit(Category_1 ob)
@@ -68,7 +69,7 @@ namespace Rocky_1.Controllers
         }
 
         //GET - DELETE
-        public ActionResult Delete(int? id)
+        public IActionResult Delete(int? id)
         {
             if (id==0 || id==null)
             {  

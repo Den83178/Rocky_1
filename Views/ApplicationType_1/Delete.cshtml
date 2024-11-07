@@ -1,0 +1,44 @@
+﻿@model Rocky_1.Models.ApplicationType_1
+
+<form method="post" asp-action="Delete_AT">
+    <input asp-for="Id" hidden></input>
+    <div class="border p-3">
+
+        <div>
+            <h2 class="text-info">Delete Application Type_1</h2>
+        </div>
+
+        <div class="col-8">
+            <div class="row">
+                <div class="col-4">
+                    @* <label asp-for="Id"></label> *@
+                </div>
+                <div class="col-8">
+                    @* <input asp-for="Id" disabled class="form-control" /> *@
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-4">
+                    <label asp-for="Name"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="Name" disabled class="form-control" />
+                </div>
+            </div>
+
+            <div class="mt-2 row">
+                <div class="col-8 offset-4 row">
+                    <div class="col">
+                        <button type="submit" class="btn btn-danger w-100">Delete</button>
+                    </div>
+                    <div class="col">
+                        <a asp-action="Index" class="btn btn-info w-100">Back</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</form>
+

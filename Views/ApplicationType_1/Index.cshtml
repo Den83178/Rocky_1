@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Rocky_1.Models.ApplicationType_1>
+
+<div class="container p-3">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h2 class="text-primary">Application Type_1</h2>
+        </div>
+
+        <div class="col-6 text-end">
+            <a asp-controller="ApplicationType_1" asp-action="Create" class="btn btn-primary"><i class="fa-solid fa-plus"></i> &nbsp; Create Application Type_1</a>
+        </div>
+    </div>
+
+    <br /><br />
+
+    @if (Model.Count() > 0)
+    {
+
+        <table class="table table-bordered table-striped" style="width:100%">
+            <thead>
+                <tr>
+                     @* <th>Id</th> *@
+                    <th>Name</th>
+                    <th class="text-center">Edit / Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var ob_at in Model)
+                {
+                    <tr>
+                        @* <td width="30%">@ob_at.Id</td> *@
+                        <td width="75%">@ob_at.Name</td>
+                        <td class="text-center">
+                            <div class="w-85 btn-group" role="group">
+                                <a asp-controller="ApplicationType_1" asp-route-id="@ob_at.Id" asp-action="Edit" class="btn btn-info mx-1"><i class="fa-regular fa-pen-to-square"></i>&nbsp; Edit</a>
+                                <a asp-controller="ApplicationType_1" asp-route-id="@ob_at.Id" asp-action="Delete" class="btn btn-danger mx-1">Delete &nbsp;<i class="fa-solid fa-trash-can"></i></a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>No application type exists</p>
+    }
+
+</div>
+
+
