@@ -15,5 +15,7 @@ namespace Rocky_1.Name
         public DbSet<Category_1> Category_1 { get; set; }
 
         public DbSet<ApplicationType_1> ApplicationType_1 { get; set; }
+
+        public DbSet<Product_1> Product_1 { get; set; }
     }
 }

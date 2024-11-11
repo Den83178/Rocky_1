@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Rocky_1.Name;
 
@@ -10,9 +11,11 @@ using Rocky_1.Name;
 namespace Rocky_1.Migrations
 {
     [DbContext(typeof(ApplicationDbContext_1))]
-    partial class ApplicationDbContext_1ModelSnapshot : ModelSnapshot
+    [Migration("20241111163530_AddRequiredFields")]
+    partial class AddRequiredFields
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -56,48 +59,6 @@ namespace Rocky_1.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Category_1");
-                });
-
-            modelBuilder.Entity("Rocky_1.Models.Product_1", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("Category_1_Id")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Image")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<double>("Price")
-                        .HasColumnType("float");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("Category_1_Id");
-
-                    b.ToTable("Product_1");
-                });
-
-            modelBuilder.Entity("Rocky_1.Models.Product_1", b =>
-                {
-                    b.HasOne("Rocky_1.Models.Category_1", "Category_1")
-                        .WithMany()
-                        .HasForeignKey("Category_1_Id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Category_1");
                 });
 #pragma warning restore 612, 618
         }
