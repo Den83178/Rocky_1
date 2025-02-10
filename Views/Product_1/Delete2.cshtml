@@ -1,0 +1,113 @@
+﻿@model Rocky_1.Models.ViewModels.ProductVM_1
+
+<form method="post" asp-action="Delete1">
+    <input asp-for="Product_1.Id" hidden />
+    <div class="border p-4">
+
+        <div class="col form-group row">
+            <h2 class="col text-info">Delete Product_1</h2>
+        </div>
+        <br />
+        <br />
+
+        <div class="row">
+            <div class="col-8 row">
+
+                <div class="row mb-2">
+                    <div class="col-4">
+                        <label asp-for="Product_1.Name" class="form-control"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="Product_1.Name" disabled class="form-control" />
+                    </div>
+                </div>
+
+                <div class="row mb-2 ">
+                    <div class="col-4">
+                        <label asp-for="Product_1.Price" class="form-control"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="Product_1.Price" disabled class="form-control" />
+                    </div>
+                </div>
+
+                <div class="row mb-2">
+                    <div class="col-4">
+                        <label asp-for="Product_1.Description" class="form-control"></label>
+                    </div>
+                    <div class="col-8">
+                        <textarea id="summernote" asp-for="Product_1.Description" disabled class="form-control"></textarea>
+                    </div>
+                </div>
+
+                <div class="row mb-2">
+                    <div class="col-4">
+                        <label asp-for="Product_1.Image" class="form-control"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="Product_1.Image" class="form-control" />
+                    </div>
+                </div>
+
+                <div class="row mb-2">
+                    <div class="col-4">
+                        <label asp-for="Product_1.Category_1_Id" class="form-control"></label>
+                    </div>
+                    <div class="col-8">
+                        <select asp-for="Product_1.Category_1_Id" asp-items="@Model.CategorySelectList_1" disabled class="form-control">
+                            <option selected>--Category--</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row mb-2">
+                    <div class="col-4">
+                        <label asp-for="Product_1.ApplicationType_1_Id" class="form-control"></label>
+                    </div>
+
+                    <div class="col-8">
+                        <select asp-for="Product_1.ApplicationType_1_Id" asp-items="@Model.ApplicationTypeSelectList_1" disabled class="form-control">
+                            <option selected>--ApplicationType--</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+
+                    <div class="col-8 offset-4 row">
+                        <div class="col">
+                            <button type="submit" class="btn btn-danger w-100">Delete</button>
+                        </div>
+
+                        <div class="col">
+                            <button asp-action="Index" type="submit" class="btn btn-info w-100">Back</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-4">
+                @if (Model.Product_1.Id != 0)
+                {
+                    <img src="@WC.ImagePath@Model.Product_1.Image" alt="Image" width="100%" style="border: 1px solid; border-radius:5px" />
+                }
+            </div>
+
+        </div>
+
+    </div>
+
+</form>
+
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+            $('#summernote').summernote({
+               placeholder: 'Hello',
+               height:70
+            });
+        });
+    </script>
+}
+

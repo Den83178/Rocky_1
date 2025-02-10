@@ -10,6 +10,8 @@ namespace Rocky_1.Models
         [Required]
         public string Name { get; set; }
 
+        public string ShortDesc { get; set; }
+
         public string? Description { get; set; }
 
         [Range ( 1, int.MaxValue )]
@@ -22,6 +24,13 @@ namespace Rocky_1.Models
         public int Category_1_Id { get; set; }
 
         [ForeignKey("Category_1_Id")]
-        public virtual Category_1 Category_1 { get; set; }
+        public virtual Category_1? Category_1 { get; set; }
+
+
+        [Display(Name = "Application Type")]
+        public int ApplicationType_1_Id { get; set; }
+
+        [ForeignKey("ApplicationType_1_Id")]
+        public virtual ApplicationType_1? ApplicationType_1 { get; set; }
     }
 }

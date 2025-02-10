@@ -13,7 +13,7 @@ namespace Rocky_1.Controllers
             _logger = logger;
         }
 
-        public IActionResult Index()
+        public IActionResult Index_1()
         {
             return View();
         }

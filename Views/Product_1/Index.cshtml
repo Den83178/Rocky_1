@@ -1,0 +1,74 @@
+﻿@model IEnumerable<Rocky_1.Models.Product_1>
+
+<style>
+
+    div button {
+        margin-left: 3px;
+        margin-right: 3px;
+    }
+</style>
+
+<div class="container p-3">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h2 class="text-primary">Product List</h2>
+        </div>
+        <div class="col-6 text-end">
+            <a asp-controller="Product_1" asp-action="Upsert" class="btn btn-primary">
+                <i class="fa-solid fa-plus"></i> &nbsp; Create New Product
+            </a>
+        </div>
+    </div>
+
+    <br /><br />
+
+
+    @if (Model.Count() > 0)
+    {
+        <table class="table table-bordered table-striped" style="width:100%">
+            <thead>
+                <tr>
+                    <th>
+                        Product Name
+                    </th>
+                    <th>
+                        Price
+                    </th>
+                    <th>
+                        Category
+                    </th>
+                    <th>
+                        Application Type
+                    </th>
+                    <th class="text-center">Edit / Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var obj in Model)
+                {
+                    <tr>
+                        <td width="30%">@obj.Name</td>
+                        <td width="10%">@obj.Price</td>
+                        <td width="20%">@obj.Category_1.Name</td>
+                        <td width="20%">@obj.ApplicationType_1.Name</td>
+                        <td class="text-center">
+                            <div class="w-85 btn-group" role="group">
+
+                                <a asp-controller="Product_1" asp-route-id="@obj.Id" asp-action="Upsert" type="submit" class="btn btn-info mx-1"> <i class="fa-regular fa-pen-to-square"></i>&nbsp; Edit</a>
+
+                                <a asp-controller="Product_1" asp-route-id="@obj.Id" asp-action="Delete" type="submit" class="btn btn-danger mx-1 ">Delete &nbsp;<i class="fas fa-trash-alt"></i></a>
+
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+
+    else
+    {
+        <p> No Product Exists.</p>
+    }
+
+</div>
